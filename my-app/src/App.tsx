@@ -4,18 +4,37 @@ import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import "./App.css";
-import { Box, Button, Grid, Paper, Skeleton } from "@mui/material";
+import { Box, Button, Grid, Paper } from "@mui/material";
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 function App() {
   const [cryptoName, setcryptoName] = useState("");
+  const [value, setValue] = useState(0);
   const [cryptoInfo, setcryptoInfo] = useState<any>(
     undefined
   );
   const CRYPTO_BASE_API_URL = "https://api.coincap.io/v2/assets";
   return (
     <div>
+      <div>
+        <Box sx={{ flexGrow: 1 }}>
+          <AppBar position="static">
+            <Toolbar>
+              <CurrencyBitcoinIcon>
+              </CurrencyBitcoinIcon>
+              <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                Cryptocurrency Coin Search
+              </Typography>
+              <Button color="inherit">Code</Button>
+            </Toolbar>
+          </AppBar>
+        </Box>
+      </div>
+
       <div className="search-field">
-        <h1>Cryptocurrency Coin Search</h1>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <TextField
             id="search-bar"
@@ -63,7 +82,7 @@ function App() {
               <Grid item>
                 <Box>
                   {cryptoInfo === undefined || cryptoInfo === null ? (
-                    <h1> Pokemon not found</h1>
+                    <h1> Coin not found</h1>
                   ) : (
                     <div>
                       <p>
@@ -91,6 +110,8 @@ function App() {
       )}
     </div>
   );
+
+
 
   function search() {
     axios
