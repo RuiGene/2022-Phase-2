@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Pokemon } from "pokenode-ts";
 import { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
@@ -12,7 +11,6 @@ import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 function App() {
   const [cryptoName, setcryptoName] = useState("");
-  const [value, setValue] = useState(0);
   const [cryptoInfo, setcryptoInfo] = useState<any>(
     undefined
   );
@@ -23,17 +21,16 @@ function App() {
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="static">
             <Toolbar>
-              <CurrencyBitcoinIcon>
+              <CurrencyBitcoinIcon sx={{ marginRight: '10px' }}>
               </CurrencyBitcoinIcon>
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Cryptocurrency Coin Search
               </Typography>
-              <Button color="inherit" onClick={() => {
-                alert('clicked');
-              }}
-              >
-                Code
-              </Button>
+              <a href='https://github.com/RuiGene/2022-Phase-2' target='_blank'>
+                <Button color="inherit">
+                  Code
+                </Button>
+              </a>
             </Toolbar>
           </AppBar>
         </Box>
@@ -68,14 +65,15 @@ function App() {
         <div></div>
       ) : (
         <div
-          id="pokemon-result"
+          id="crypto-result"
           style={{
             maxWidth: "800px",
             margin: "0 auto",
             padding: "100px 10px 0px 10px",
           }}
         >
-          <Paper>
+          <Paper
+            sx={{ border: "2px solid black" }}>
             <Grid
               container
               direction="row"
@@ -91,16 +89,15 @@ function App() {
                   ) : (
                     <div>
                       <p>
-                        <br />
                         NAME: {cryptoInfo.data[0].id}
                         <br />
                         RANK: {cryptoInfo.data[0].rank}
                         <br />
-                        SUPPLY: parseInt({cryptoInfo.data[0].supply})
+                        SUPPLY: {parseInt(cryptoInfo.data[0].supply)} coins
                         <br />
-                        PRICE: {cryptoInfo.data[0].priceUsd} USD
+                        PRICE: ${parseFloat(cryptoInfo.data[0].priceUsd).toFixed(6)} USD
                         <br />
-                        CHANGE IN LAST 24HR: {cryptoInfo.data[0].changePercent24Hr}%
+                        CHANGE IN LAST 24HR: {parseFloat(cryptoInfo.data[0].changePercent24Hr).toFixed(8)}%
                         <br />
                       </p>
                     </div>
