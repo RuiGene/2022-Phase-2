@@ -7,8 +7,8 @@ import "./App.css";
 import { Box, Button, Grid, Paper, Skeleton } from "@mui/material";
 
 function App() {
-  const [pokemonName, setPokemonName] = useState("");
-  const [pokemonInfo, setPokemonInfo] = useState<any>(
+  const [cryptoName, setcryptoName] = useState("");
+  const [cryptoInfo, setcryptoInfo] = useState<any>(
     undefined
   );
   const CRYPTO_BASE_API_URL = "https://api.coincap.io/v2/assets";
@@ -20,11 +20,11 @@ function App() {
           <TextField
             id="search-bar"
             className="text"
-            value={pokemonName}
+            value={cryptoName}
             onChange={(prop) => {
-              setPokemonName(prop.target.value);
+              setcryptoName(prop.target.value);
             }}
-            label="Enter a Pokémon Name..."
+            label="Enter a crypto coin ticker..."
             variant="outlined"
             placeholder="Search..."
             size="medium"
@@ -40,7 +40,7 @@ function App() {
         </div>
       </div>
 
-      {pokemonInfo === undefined ? (
+      {cryptoInfo === undefined ? (
         <div></div>
       ) : (
         <div
@@ -62,15 +62,21 @@ function App() {
             >
               <Grid item>
                 <Box>
-                  {pokemonInfo === undefined || pokemonInfo === null ? (
+                  {cryptoInfo === undefined || cryptoInfo === null ? (
                     <h1> Pokemon not found</h1>
                   ) : (
                     <div>
                       <p>
                         <br />
-                        Height: {pokemonInfo.data[0].rank}
+                        NAME: {cryptoInfo.data[0].id}
                         <br />
-                        Weight: {pokemonInfo.data[0].supply}
+                        RANK: {cryptoInfo.data[0].rank}
+                        <br />
+                        SUPPLY: parseInt({cryptoInfo.data[0].supply})
+                        <br />
+                        PRICE: {cryptoInfo.data[0].priceUsd} USD
+                        <br />
+                        CHANGE IN LAST 24HR: {cryptoInfo.data[0].changePercent24Hr}%
                         <br />
                       </p>
                     </div>
@@ -88,10 +94,10 @@ function App() {
 
   function search() {
     axios
-      .get(CRYPTO_BASE_API_URL + '?search=' + pokemonName)
+      .get(CRYPTO_BASE_API_URL + '?search=' + cryptoName)
       .then((res) => {
         console.log(res.data);
-        setPokemonInfo(res.data);
+        setcryptoInfo(res.data);
       })
       .catch(() => {
         return
