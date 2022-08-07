@@ -28,7 +28,12 @@ function App() {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Cryptocurrency Coin Search
               </Typography>
-              <Button color="inherit">Code</Button>
+              <Button color="inherit" onClick={() => {
+                alert('clicked');
+              }}
+              >
+                Code
+              </Button>
             </Toolbar>
           </AppBar>
         </Box>
