@@ -1,6 +1,6 @@
 For this project I chose to use the coincap API as my data source.
 This is the link to the API:
-https://docs.coincap.io/
+https://docs.coincap.io/ and 
 https://api.coincap.io/v2/assets
 
 You are able to search up different crypto coins based off their tickers.
