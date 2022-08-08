@@ -26,7 +26,7 @@ function App() {
               <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 Cryptocurrency Coin Search
               </Typography>
-              <a href='https://github.com/RuiGene/2022-Phase-2' target='_blank'>
+              <a href='https://github.com/RuiGene/2022-Phase-2/tree/main/website' target='_blank'>
                 <Button color="inherit">
                   Code
                 </Button>
