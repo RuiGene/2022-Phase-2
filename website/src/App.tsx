@@ -84,7 +84,7 @@ function App() {
             >
               <Grid item>
                 <Box>
-                  {cryptoInfo === undefined || cryptoInfo.data || cryptoInfo === null ? (
+                  {cryptoInfo === undefined || !cryptoInfo.data[0] || cryptoInfo === null ? (
                     <h1> Coin not found</h1>
                   ) : (
                     <div>
