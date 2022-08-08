@@ -5,4 +5,4 @@ https://api.coincap.io/v2/assets
 
 You are able to search up different crypto coins based off their tickers.
 E.g. If you wanted to search up Bitcion, you would simply type BTC and press search, yielding this result:
-![alt text](https://github.com/RuiGene/2022-Phase-2/website/BTC.png?raw=true)
+![BTC](https://user-images.githubusercontent.com/94594709/183372388-ed058c70-5ea4-429c-bab7-bf916eb51feb.png)
