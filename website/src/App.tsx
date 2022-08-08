@@ -113,8 +113,6 @@ function App() {
     </div>
   );
 
-
-
   function search() {
     axios
       .get(CRYPTO_BASE_API_URL + '?search=' + cryptoName)
